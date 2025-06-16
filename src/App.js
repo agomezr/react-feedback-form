@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import FeedbackForm from "./FeedbackForm";
+
+function Button({ children, backgroundColor, onClick }) {
+  return (
+    <>
+      <button style={{ backgroundColor }} onClick={onClick}>{children}</button>
+    </>
+  );
+}
+
+const handleReset = () => {
+  console.log('Handle Reset');
+};
 
 function App() {
+
+  const handleSubmit = (props) => {
+    console.log(props);
+    console.log("Form submitted!");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+      <div className="App">
+        <FeedbackForm onSubmit={handleSubmit} />
+      </div>
+      <Button backgroundColor='blue' onClick={handleReset}>Delete</Button>
+    </>
   );
 }
 
