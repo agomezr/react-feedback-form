@@ -18,32 +18,21 @@ function FeedbackForm({onSubmit}) {
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <fieldset>
           <h2>Feedback form</h2>
           <div className="Field">
             <label htmlFor="score">Score: {score} ⭐</label>
             <input
-              id="score"
-              value={score}
-              onChange={(e) => {
-                setScore(e.target.value);
-              }}
-              type="range"
-              min="0"
-              max="10"
+              id="score" value={score} onChange={(e) => { setScore(e.target.value); }}
+              type="range" min="0" max="10"
             />
           </div>
           <div className="Field">
             <label htmlFor="comment">Comments:</label>
             <textarea
-              id="comment"
-              placeholder={textAreaPlaceholder}
-              name="comment"
-              value={comment}
-              onChange={(e) => {
-                setComment(e.target.value);
-              }}
+              id="comment" placeholder={textAreaPlaceholder} name="comment"
+              value={comment} onChange={(e) => { setComment(e.target.value); }}
             />
           </div>
           <button type="submit" disabled={isDisabled}>
